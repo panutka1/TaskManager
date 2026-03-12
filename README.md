@@ -168,8 +168,3 @@ docker compose down
 * HTTPS with Let's Encrypt
 * Monitoring with Prometheus and Grafana
 
----
-
-## Author
-
-DevOps / Backend learning project.
