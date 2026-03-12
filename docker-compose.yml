@@ -1,0 +1,7 @@
+
+services:
+  app:
+    container_name: taskmanager-api
+    build: .
+    ports:
+      - "8000:8000"
