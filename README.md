@@ -81,7 +81,7 @@ http://localhost:8000/docs
 ### Health Check
 
 ```
-GET /api/v1/health-check
+GET /health-check
 ```
 
 Response:
@@ -97,7 +97,7 @@ Response:
 ### Create Task
 
 ```
-POST /api/v1/tasks
+POST /tasks
 ```
 
 Example body:
@@ -114,7 +114,7 @@ Example body:
 ### Get All Tasks
 
 ```
-GET /api/v1/tasks
+GET /tasks
 ```
 
 ---
@@ -122,7 +122,7 @@ GET /api/v1/tasks
 ### Get Task By ID
 
 ```
-GET /api/v1/tasks/{task_id}
+GET /tasks/{task_id}
 ```
 
 ---
@@ -130,7 +130,7 @@ GET /api/v1/tasks/{task_id}
 ### Update Task
 
 ```
-PUT /api/v1/tasks/{task_id}
+PUT /tasks/{task_id}
 ```
 
 ---
@@ -138,7 +138,7 @@ PUT /api/v1/tasks/{task_id}
 ### Delete Task
 
 ```
-DELETE /api/v1/tasks/{task_id}
+DELETE /tasks/{task_id}
 ```
 
 ---
