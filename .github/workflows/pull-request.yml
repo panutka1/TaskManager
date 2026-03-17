@@ -1,0 +1,33 @@
+name: Code Quality (PR)
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.13
+
+      - name: Install tools
+        run: pip install flake8 black isort mypy
+
+      - name: Lint code
+        run: flake8 .
+
+      - name: Check formatting
+        run: black --check .
+
+      - name: Check import order
+        run: isort --check-only .
+
+      - name: Type check
+        run: mypy .
