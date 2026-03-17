@@ -1,6 +1,8 @@
-from fastapi import APIRouter, HTTPException
 from typing import List
 from uuid import uuid4
+
+from fastapi import APIRouter, HTTPException
+
 from app.models import Task, TaskCreate
 
 router = APIRouter()
