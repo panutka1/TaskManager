@@ -12,6 +12,7 @@ tasks: List[Task] = []
 
 # ===== ENDPOINTY =====
 
+
 @router.get("/health-check")
 def health_check():
     return {"status": "ok"}
@@ -25,10 +26,7 @@ def get_tasks():
 @router.post("/tasks", response_model=Task)
 def create_task(task: TaskCreate):
     new_task = Task(
-        id=str(uuid4()),
-        title=task.title,
-        description=task.description,
-        completed=False
+        id=str(uuid4()), title=task.title, description=task.description, completed=False
     )
     tasks.append(new_task)
     return new_task
