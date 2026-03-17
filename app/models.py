@@ -7,3 +7,4 @@ class TaskCreate(BaseModel):
 class Task(TaskCreate):
     id: str
     completed: bool = False
+
