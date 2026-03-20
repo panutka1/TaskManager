@@ -59,3 +59,8 @@ def delete_task(task_id: str):
             tasks.remove(task)
             return {"message": "Task deleted"}
     raise HTTPException(status_code=404, detail="Task not found")
+
+
+@router.get("/")
+def root():
+    return {"message": "Task Manager API działa!"}
