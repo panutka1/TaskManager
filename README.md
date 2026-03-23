@@ -21,7 +21,7 @@ Application runs inside a Docker container and exposes an HTTP API on port **800
 
 ## Tech Stack
 
-* Python 3.13
+* Python 3.12
 * FastAPI
 * Uvicorn
 * Docker
