@@ -27,8 +27,6 @@ Application runs inside a Docker container and exposes an HTTP API on port **800
 * Docker
 * Docker Compose
 
----
-
 ## Project Structure
 
 ```
