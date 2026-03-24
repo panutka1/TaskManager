@@ -165,4 +165,3 @@ docker compose down
 * Reverse proxy with Nginx
 * HTTPS with Let's Encrypt
 * Monitoring with Prometheus and Grafana
-
