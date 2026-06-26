@@ -1,19 +1,13 @@
 from logging.config import fileConfig
-
-from sqlalchemy import engine_from_config
-from sqlalchemy import pool
-
-from alembic import context
-
-from dotenv import load_dotenv
 from pathlib import Path
 
+from alembic import context
+from dotenv import load_dotenv
+
 load_dotenv(dotenv_path=Path(__file__).parent.parent / ".env")
-from app.models import TaskModel
-from app.database import Base, engine
 
-
-
+from app.database import Base, engine  # noqa: E402
+from app.models import TaskModel  # noqa: F401, E402
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
@@ -71,16 +65,14 @@ def run_migrations_online() -> None:
     """
     connectable = engine
 
-    #connectable = engine_from_config(
+    # connectable = engine_from_config(
     #    config.get_section(config.config_ini_section, {}),
-     #   prefix="sqlalchemy.",
-     #   poolclass=pool.NullPool,
-    #)
+    #   prefix="sqlalchemy.",
+    #   poolclass=pool.NullPool,
+    # )
 
     with connectable.connect() as connection:
-        context.configure(
-            connection=connection, target_metadata=target_metadata
-        )
+        context.configure(connection=connection, target_metadata=target_metadata)
 
         with context.begin_transaction():
             context.run_migrations()

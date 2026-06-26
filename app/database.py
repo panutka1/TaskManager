@@ -1,10 +1,9 @@
 import os
-from dotenv import load_dotenv
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
-from sqlalchemy.orm import DeclarativeBase
 from pathlib import Path
 
+from dotenv import load_dotenv
+from sqlalchemy import create_engine
+from sqlalchemy.orm import DeclarativeBase, sessionmaker
 
 load_dotenv(dotenv_path=Path(__file__).parent.parent / ".env")
 
@@ -20,8 +19,10 @@ engine = create_engine(DATABASE_URL)
 
 Session = sessionmaker(engine)
 
+
 class Base(DeclarativeBase):
     pass
+
 
 def get_db():
     db = Session()
@@ -29,7 +30,3 @@ def get_db():
         yield db
     finally:
         db.close()
-
-
-
-
