@@ -159,7 +159,6 @@ docker compose down
 
 ## Future Improvements
 
-* PostgreSQL database
 * Reverse proxy with Nginx
 * HTTPS with Let's Encrypt
 * Monitoring with Prometheus and Grafana
