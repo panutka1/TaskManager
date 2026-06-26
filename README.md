@@ -31,16 +31,16 @@ Application runs inside a Docker container and exposes an HTTP API on port **800
 
 ```
 taskmanager
-│
-├── app
-│   ├── main.py
-│   ├── routes.py
-│   └── models.py
-│
-├── Dockerfile
-├── docker-compose.yml
-├── requirements.txt
-└── README.md
+|
+|- app
+|   |- main.py
+|   |- routes.py
+|   |- models.py
+|
+|- Dockerfile
+|- docker-compose.yml
+|- requirements.txt
+|- README.md
 ```
 
 ---
