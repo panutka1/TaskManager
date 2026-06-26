@@ -7,11 +7,11 @@ from sqlalchemy.orm import DeclarativeBase, sessionmaker
 
 load_dotenv(dotenv_path=Path(__file__).parent.parent / ".env")
 
-user = os.getenv("POSTGRES_USER")
-password = os.getenv("POSTGRES_PASSWORD")
-host = os.getenv("POSTGRES_HOST")
-port = os.getenv("POSTGRES_PORT")
-db = os.getenv("POSTGRES_DB")
+user = os.getenv("POSTGRES_USER", "")
+password = os.getenv("POSTGRES_PASSWORD", "")
+host = os.getenv("POSTGRES_HOST", "localhost")
+port = os.getenv("POSTGRES_PORT", "5432")
+db = os.getenv("POSTGRES_DB", "")
 
 DATABASE_URL = f"postgresql://{user}:{password}@{host}:{port}/{db}"
 
