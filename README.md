@@ -2,18 +2,25 @@
 
 Simple **REST API for managing tasks** built with FastAPI and containerized with Docker.
 
+(For Kubernetes deployment see repo TaskManager_devops: 
+https://github.com/panutka1/TaskManager_devops
+)
+
 This project demonstrates a basic backend service with a production-like development setup using:
 
 * FastAPI
 * Docker
 * Docker Compose
 * REST API principles
+* PostgreSQL
+* Alembic
+* Pytest
 
 ---
 
 ## Architecture
 
-Client → FastAPI → In-memory storage (tasks list)
+Client → FastAPI → PostgreSQL
 
 Application runs inside a Docker container and exposes an HTTP API on port **8000**.
 
@@ -26,6 +33,9 @@ Application runs inside a Docker container and exposes an HTTP API on port **800
 * Uvicorn
 * Docker
 * Docker Compose
+* PostgreSQL
+* Alembic
+* Pytest
 
 ## Project Structure
 
@@ -36,6 +46,11 @@ taskmanager
 |   |- main.py
 |   |- routes.py
 |   |- models.py
+|   |- database.py
+|
+|- migrations/
+|- tests
+|   |-test_tasks.py
 |
 |- Dockerfile
 |- docker-compose.yml
@@ -79,7 +94,7 @@ http://localhost:8000/docs
 ### Health Check
 
 ```
-GET /health-check
+GET /api/v1/health-check
 ```
 
 Response:
@@ -95,16 +110,7 @@ Response:
 ### Create Task
 
 ```
-POST /tasks
-```
-
-Example body:
-
-```
-{
-  "title": "Buy milk",
-  "description": "from supermarket"
-}
+POST /api/v1/tasks
 ```
 
 ---
@@ -112,7 +118,7 @@ Example body:
 ### Get All Tasks
 
 ```
-GET /tasks
+GET /api/v1/tasks
 ```
 
 ---
@@ -120,7 +126,7 @@ GET /tasks
 ### Get Task By ID
 
 ```
-GET /tasks/{task_id}
+GET /api/v1/tasks/{task_id}
 ```
 
 ---
@@ -128,7 +134,7 @@ GET /tasks/{task_id}
 ### Update Task
 
 ```
-PUT /tasks/{task_id}
+PUT /api/v1/tasks/{task_id}
 ```
 
 ---
@@ -136,7 +142,7 @@ PUT /tasks/{task_id}
 ### Delete Task
 
 ```
-DELETE /tasks/{task_id}
+DELETE /api/v1/tasks/{task_id}
 ```
 
 ---
@@ -156,6 +162,17 @@ docker compose down
 ```
 
 ---
+
+## Tests
+
+Run tests:
+
+```
+cd TaskManager
+
+pytest tests/
+
+```
 
 ## Future Improvements
 
